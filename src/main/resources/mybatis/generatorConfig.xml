@@ -46,5 +46,17 @@
             enableCountByExample="false" enableUpdateByExample="false"
             enableDeleteByExample="false" enableSelectByExample="false"
             selectByExampleQueryId="false"></table>
+        <table tableName="tb_type" domainObjectName="Type"
+            enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false"></table>
+        <table tableName="tb_menu" domainObjectName="Menu"
+            enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false"></table>
+        <table tableName="tb_menu_type" domainObjectName="MenuType"
+            enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false"></table>
     </context>
 </generatorConfiguration>
