@@ -1,19 +1,19 @@
         
         MenuController提供的接口：
         1. 首页获取所有的菜谱
-        http://localhost:9090/OrderServer/menuController//getAllMenu.action
+        http://localhost:8080/OrderSystemService/menuController//getAllMenu.action
 
         2. 获取所有的菜谱类型
-        http://localhost:9090/OrderServer/menuController//getAllType.action
+        http://localhost:8080/OrderSystemService/menuController//getAllType.action
 
         3. 获取指定菜谱类型所有的菜谱
-        http://localhost:9090/OrderServer/menuController/getMenuByType.action?typeId=#{类型ID}
+        http://localhost:8080/OrderSystemService/menuController/getMenuByType.action?typeId=#{类型ID}
                      说明: 需要传入类型的 ID(int)
         
         4. 根据菜谱id查找对应的菜谱信息
-        http://localhost:9090/OrderServer/menuController/getMenuByMenuId.action?menuId=#{菜谱ID}
+        http://localhost:8080/OrderSystemService/menuController/getMenuByMenuId.action?menuId=#{菜谱ID}
                      说明: 需要传入类型的 ID(int)
 
         5. 根据菜谱名称搜索相应的菜谱
-        http://localhost:9090/OrderServer/menuController/searchByName.action?shortName=#{关键词}
+        http://localhost:8080/OrderSystemService/menuController/searchByName.action?shortName=#{关键词}
                      说明: 需要传入关键字符串(String)
