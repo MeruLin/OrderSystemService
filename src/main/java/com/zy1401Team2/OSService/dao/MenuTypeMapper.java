@@ -50,4 +50,5 @@ public interface MenuTypeMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(MenuType record);
+    
 }

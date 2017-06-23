@@ -82,6 +82,16 @@ public class MenuController {
 		return menuList;
 	}
 	
+	@RequestMapping(value = "/getTypeByMenuId.action")
+	public @ResponseBody Type getTypeByMenuId(int menuId) {
+		// 调用 service ,获取商品列表
+		Type type = typeService.getTypeByMenu(menuId);
+
+		System.out.println(type);
+		// 将商品列表以 json 形式返回到客户端
+		return type;
+	}
+	
 	public MenuService getMenuService() {
 		return menuService;
 	}

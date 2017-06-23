@@ -59,4 +59,6 @@ public interface TypeMapper {
     List<Type> selectAllType();
     
     Type selectById(int typeId);
+    
+    Type selectTypeByMenuId(int menuId);
 }

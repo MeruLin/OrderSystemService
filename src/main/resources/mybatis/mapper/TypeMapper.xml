@@ -9,6 +9,15 @@
   <select id="selectById" resultType="com.zy1401Team2.OSService.bean.Type" parameterType="java.lang.Integer">
 		select * from tb_type where type_id = #{id}
   </select>
+  
+  <select id="selectTypeByMenuId" resultType="com.zy1401Team2.OSService.bean.Type" parameterType="java.lang.Integer">
+		select T.* from
+		tb_type T,tb_menu_type MT 
+		where
+			T.type_id = MT.type_id
+			and 
+			MT.menu_id = #{menuId}
+	</select>
   <!-- 自定义方法end -->
 	
 	

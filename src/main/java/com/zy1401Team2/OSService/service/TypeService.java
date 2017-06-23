@@ -22,6 +22,10 @@ public class TypeService {
 	{
 		return typeDao.selectById(typeId);
 	}
+	
+	public Type getTypeByMenu(int menuId) {
+		return typeDao.selectTypeByMenuId(menuId);
+	}
 
 	public TypeMapper getTypeDao() {
 		return typeDao;
