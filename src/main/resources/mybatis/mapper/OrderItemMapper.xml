@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+            PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+            "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy1401Team2.OSService.dao.OrderItemMapper">
+	<insert id="insertOrderItem" parameterType="com.zy1401Team2.OSService.bean.OrderItem" useGeneratedKeys="true" keyProperty="orderItemId">
+		insert into tb_order_detail(order_id,menu_id,menu_name,detail_count)
+		values (#{orderId},#{menuBean.menuId},#{menuBean.menuName},#{count});
+	</insert>
+</mapper>

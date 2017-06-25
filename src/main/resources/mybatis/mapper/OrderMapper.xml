@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+            PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+            "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy1401Team2.OSService.dao.OrderMapper">
+
+
+	<insert id="insertOrder" parameterType="com.zy1401Team2.OSService.bean.Order" useGeneratedKeys="true" keyProperty="orderId">
+		insert into
+		tb_order(order_price,order_cut_price,order_time,order_state,order_table)
+		values
+		(#{totalPrice},#{cutPrice},#{orderTime},#{state},#{tableNumber});
+	</insert>
+
+	 
+</mapper>
