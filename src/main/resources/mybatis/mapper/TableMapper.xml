@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+            PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+            "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy1401Team2.OSService.dao.TableMapper">
+    
+    <select id="selectAllTable" resultType="com.zy1401Team2.OSService.bean.Table">
+		select * from tb_table;
+    </select>
+    
+    <update id="bindTableByID" parameterType="java.lang.Integer">
+        update tb_table set table_is_bind = true where table_id = #{tableId}
+    </update>
+    
+    <update id="unbindTableByID" parameterType="java.lang.Integer">
+        update tb_table set table_is_bind = false where table_id = #{tableId}
+    </update>
+    
+    <select id="selectTableById" parameterType="java.lang.Integer" resultType="com.zy1401Team2.OSService.bean.Table">
+        select * from tb_table where table_id = #{tableId}
+    </select>
+    
+    <update id="setTableUsed" parameterType="java.lang.Integer">
+        update tb_table set table_status = "已使用" where table_id = #{tableId}
+    </update>
+    
+    <update id="setTableUnused" parameterType="java.lang.Integer">
+        update tb_table set table_status = "未使用" where table_id = #{tableId}
+    </update>
+    
+    <update id="setTableCheckBill" parameterType="java.lang.Integer">
+        update tb_table set table_status = "正在结账" where table_id = #{tableId}
+    </update>
+    
+</mapper>

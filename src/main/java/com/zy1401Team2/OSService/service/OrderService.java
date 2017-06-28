@@ -8,8 +8,12 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.zy1401Team2.OSService.bean.Order;
+import com.zy1401Team2.OSService.bean.OrderDetail;
 import com.zy1401Team2.OSService.dao.OrderMapper;
+import com.zy1401Team2.OSService.dao.TbOrderMapper;
 import com.zy1401Team2.OSService.bean.OrderItem;
+import com.zy1401Team2.OSService.bean.TbOrder;
+import com.zy1401Team2.OSService.dao.OrderDetailMapper;
 import com.zy1401Team2.OSService.dao.OrderItemMapper;
 
 @Service(value="orderService")
@@ -18,6 +22,10 @@ public class OrderService {
 	private OrderMapper orderDao;
 	@Resource(name="orderItemDao")
 	private OrderItemMapper orderItemDao;
+	@Resource(name="tbOrderDao")
+	private TbOrderMapper tbOrderDao;
+	@Resource(name="orderDetailDao")
+	private OrderDetailMapper orderDetailDao;
 	
 	public OrderMapper getOrderDao() {
 		return orderDao;
@@ -35,6 +43,22 @@ public class OrderService {
 
 	public void setOrderItemDao(OrderItemMapper orderItemDao) {
 		this.orderItemDao = orderItemDao;
+	}
+	
+	public TbOrderMapper getTbOrderDao() {
+		return tbOrderDao;
+	}
+
+	public void setTbOrderDao(TbOrderMapper tbOrderDao) {
+		this.tbOrderDao = tbOrderDao;
+	}
+	
+	public OrderDetailMapper getOrderDetailDao() {
+		return orderDetailDao;
+	}
+
+	public void setOrderDetailDao(OrderDetailMapper orderDetailDao) {
+		this.orderDetailDao = orderDetailDao;
 	}
 	
 	public Order createOrder(Order orderBean){
@@ -57,5 +81,38 @@ public class OrderService {
 		System.out.println("下单成功");
 		return orderBean;
 	}
+	
+	public TbOrder getOrderByOrderId(int orderId){
+		return tbOrderDao.selectOrderByOrderId(orderId);
+	}
+	
+	public TbOrder getOrderByTableId(int tableId){
+		return tbOrderDao.selectOrderByTableId(tableId);
+	}
+	
+	public void deleteOrder(int orderId){
+		tbOrderDao.deleteOrder(orderId);
+		orderDetailDao.deleteAllOrderItem(orderId);
+	}
+	
+	public OrderDetail selectOrderItem(OrderItem orderItem){
+		OrderDetail orderDetail = new OrderDetail();
+		orderDetail.orderId = orderItem.orderId;
+		orderDetail.menu_id = orderItem.menuBean.getMenuId();
+		return orderDetailDao.selectOrderItem(orderDetail);
+	}
+	
+	public void deleteOrderItem(OrderItem orderItem){
+		OrderDetail orderDetail = new OrderDetail();
+		orderDetail.orderId = orderItem.orderId;
+		orderDetail.menu_id = orderItem.menuBean.getMenuId();
+		orderDetailDao.deleteOrderItem(orderDetail);
+	}
+	
+	public void changeTable(Order order){
+	    orderDao.updateOrderTable(order);
+	}
+	
+	
 }
 

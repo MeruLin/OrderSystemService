@@ -7,4 +7,6 @@ import com.zy1401Team2.OSService.bean.Order;
 @Repository(value="orderDao")
 public interface OrderMapper {
 	void insertOrder(Order o);
+	
+	void updateOrderTable(Order order);
 }
