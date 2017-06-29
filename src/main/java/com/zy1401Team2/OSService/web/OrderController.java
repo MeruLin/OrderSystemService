@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
+import java.lang.reflect.Type;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.zy1401Team2.OSService.bean.Order;
 import com.zy1401Team2.OSService.bean.OrderDetail;
 import com.zy1401Team2.OSService.bean.OrderItem;
@@ -44,6 +46,15 @@ public class OrderController {
 		
 		System.out.println("订单创建完成");
 		return orderBean;
+	}
+	
+	@RequestMapping(value="/addOrderItem.action")
+	public @ResponseBody OrderItem addOrderItem(@RequestBody String json){
+		Gson gson = new Gson();
+		OrderItem item = gson.fromJson(json,OrderItem.class);
+		orderService.insertOrderItem(item);
+		System.out.println("加单成功");
+		return item;
 	}
 	
 	@RequestMapping(value="/getOrderByTableId.action")

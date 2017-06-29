@@ -36,5 +36,9 @@ public class MenuService {
 	public List<Menu> searchByName(String shortName) {
 		return menuDao.selectLikeName(shortName);
 	}
+	
+	public List<Menu> getMenuByUser(String userPhone){
+		return menuDao.selectUserFavorite(userPhone);
+	}
 
 }

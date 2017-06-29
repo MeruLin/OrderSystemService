@@ -1,0 +1,8 @@
+<!DOCTYPE mapper
+            PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+            "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zy1401Team2.OSService.dao.UserFavoriteMapper">
+    <insert id="insertUserFavorite" parameterType="com.zy1401Team2.OSService.bean.UserFavorite" useGeneratedKeys="true" keyProperty="favoriteNum">
+        insert into tb_user_favorite(user_phone,menu_id) values(#{userPhone},#{menuId})
+    </insert>
+</mapper>

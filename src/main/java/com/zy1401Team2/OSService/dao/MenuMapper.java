@@ -61,4 +61,6 @@ public interface MenuMapper {
     List<Menu> selectByType(int typeId);
     
     List<Menu> selectLikeName(String shortName);
+    
+    List<Menu> selectUserFavorite(String userPhone);
 }

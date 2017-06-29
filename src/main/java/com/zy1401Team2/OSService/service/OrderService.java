@@ -2,6 +2,7 @@ package com.zy1401Team2.OSService.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -80,6 +81,10 @@ public class OrderService {
 		}
 		System.out.println("下单成功");
 		return orderBean;
+	}
+	
+	public void insertOrderItem(OrderItem item){
+		orderItemDao.insertOrderItem(item);
 	}
 	
 	public TbOrder getOrderByOrderId(int orderId){

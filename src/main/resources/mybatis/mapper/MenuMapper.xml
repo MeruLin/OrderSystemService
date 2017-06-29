@@ -55,6 +55,10 @@
 		select * from tb_menu 
 		where menu_name like #{shortName}
   </select>
+  
+  <select id="selectUserFavorite" resultType="com.zy1401Team2.OSService.bean.Menu" parameterType="String">
+        select * from tb_menu where menu_id in (select menu_id from tb_user_favorite where user_phone = #{userPhone})
+  </select>
   <!-- 自定義方法end -->
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

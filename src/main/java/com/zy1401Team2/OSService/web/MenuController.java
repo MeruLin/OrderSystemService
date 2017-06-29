@@ -92,6 +92,13 @@ public class MenuController {
 		return type;
 	}
 	
+	@RequestMapping(value = "/getMenuByUserPhone.action")
+	public @ResponseBody List<Menu> getMenuByUserPhone(String userPhone){
+		List<Menu> menuList = menuService.getMenuByUser(userPhone);
+		System.out.println(menuList.toString());
+		return menuList;
+	}
+	
 	public MenuService getMenuService() {
 		return menuService;
 	}
